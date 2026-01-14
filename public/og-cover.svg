@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="rgba(34,211,238,0.45)" />
+      <stop offset="70%" stop-color="rgba(168,85,247,0.25)" />
+      <stop offset="100%" stop-color="rgba(15,23,42,0)" />
+    </radialGradient>
+    <linearGradient id="text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <g opacity="0.2">
+    <path d="M0 70L1200 70" stroke="#38bdf8" stroke-width="1" />
+    <path d="M0 140L1200 140" stroke="#38bdf8" stroke-width="1" />
+    <path d="M0 210L1200 210" stroke="#38bdf8" stroke-width="1" />
+    <path d="M0 280L1200 280" stroke="#38bdf8" stroke-width="1" />
+    <path d="M0 350L1200 350" stroke="#38bdf8" stroke-width="1" />
+    <path d="M0 420L1200 420" stroke="#38bdf8" stroke-width="1" />
+    <path d="M0 490L1200 490" stroke="#38bdf8" stroke-width="1" />
+    <path d="M0 560L1200 560" stroke="#38bdf8" stroke-width="1" />
+    <path d="M120 0L120 630" stroke="#38bdf8" stroke-width="1" />
+    <path d="M240 0L240 630" stroke="#38bdf8" stroke-width="1" />
+    <path d="M360 0L360 630" stroke="#38bdf8" stroke-width="1" />
+    <path d="M480 0L480 630" stroke="#38bdf8" stroke-width="1" />
+    <path d="M600 0L600 630" stroke="#38bdf8" stroke-width="1" />
+    <path d="M720 0L720 630" stroke="#38bdf8" stroke-width="1" />
+    <path d="M840 0L840 630" stroke="#38bdf8" stroke-width="1" />
+    <path d="M960 0L960 630" stroke="#38bdf8" stroke-width="1" />
+    <path d="M1080 0L1080 630" stroke="#38bdf8" stroke-width="1" />
+  </g>
+  <g transform="translate(100, 160)">
+    <text x="0" y="0" fill="#94a3b8" font-family="'Geist', 'Segoe UI', sans-serif" font-size="32" letter-spacing="0.35em">NEBULAFOUNDRY AI</text>
+    <text x="0" y="120" fill="url(#text)" font-family="'Geist', 'Segoe UI', sans-serif" font-size="90" font-weight="700">FUTURISTIC AI SYSTEMS</text>
+    <text x="0" y="195" fill="#e2e8f0" font-family="'Geist', 'Segoe UI', sans-serif" font-size="40" opacity="0.9">Generative Products • Intelligent Automation • Vision</text>
+  </g>
+  <g transform="translate(100, 470)" fill="#94a3b8" font-family="'Geist', 'Segoe UI', sans-serif" font-size="26">
+    <text y="0">LLM Engineering</text>
+    <text x="260" y="0">Agentic Workflows</text>
+    <text x="580" y="0">Responsible AI Ops</text>
+    <text x="900" y="0">End-to-End Delivery</text>
+  </g>
+</svg>

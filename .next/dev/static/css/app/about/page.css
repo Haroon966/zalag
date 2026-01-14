@@ -1,0 +1,138 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[5].use[3]!./src/app/about/about.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+.about_page__hxz1O {
+  min-height: 100vh;
+  padding: clamp(4rem, 8vw, 6rem) clamp(1.75rem, 6vw, 4rem) 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 1040px;
+  margin: 0 auto;
+  color: var(--foreground);
+}
+
+.about_hero__hgGLN {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.about_tag___5YCC {
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #a855f7;
+}
+
+.about_title__ZvvJk {
+  font-size: clamp(2.25rem, 4vw, 3.3rem);
+  font-weight: 600;
+  color: #fff;
+}
+
+.about_lead__txhEh {
+  max-width: 720px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(203, 213, 225, 0.85);
+}
+
+.about_section__iIVqi {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.about_grid__H8z_o {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.about_card__NLQOj {
+  padding: 1.5rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(9, 14, 25, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.about_cardTitle__wxWiJ {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.about_cardBody__gvMRu {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.about_timeline__MtDIi {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.about_milestone__JwICI {
+  border-left: 3px solid rgba(168, 85, 247, 0.55);
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about_milestone__JwICI span {
+  font-size: 0.85rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.75);
+}
+
+.about_milestone__JwICI strong {
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.about_values__AHnnh {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  padding: 0;
+  margin: 0;
+}
+
+.about_values__AHnnh li {
+  border-radius: 1.1rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(9, 14, 25, 0.55);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about_values__AHnnh h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.about_values__AHnnh p {
+  font-size: 0.92rem;
+  color: rgba(203, 213, 225, 0.82);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .about_page__hxz1O {
+    padding: 3.5rem 1.25rem 4.5rem;
+    gap: 3rem;
+  }
+}
+

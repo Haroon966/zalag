@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 90vh;
+  height: 100vh;
   padding: 8rem 2rem;
   text-align: center;
   overflow: hidden;
@@ -133,7 +133,7 @@
 @media (max-width: 640px) {
   .hero {
     padding: 6rem 1.5rem;
-    min-height: 80vh;
+    height: 100vh;
   }
 
   .heroActions {

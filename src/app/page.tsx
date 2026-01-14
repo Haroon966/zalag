@@ -12,7 +12,6 @@ export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const taglineRef = useRef<HTMLParagraphElement>(null);
-  const descriptionRef = useRef<HTMLParagraphElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,15 +31,6 @@ export default function Home() {
             duration: 0.8,
           },
           "-=0.6"
-        )
-        .from(
-          descriptionRef.current,
-          {
-            opacity: 0,
-            y: 40,
-            duration: 0.8,
-          },
-          "-=0.5"
         )
         .from(
           actionsRef.current?.children || [],
@@ -78,9 +68,6 @@ export default function Home() {
           </h1>
           <p ref={taglineRef} className={styles.heroTagline}>
             {siteConfig.tagline}
-          </p>
-          <p ref={descriptionRef} className={styles.heroDescription}>
-            {siteConfig.description}
           </p>
           <div ref={actionsRef} className={styles.heroActions}>
             <Link href="/contact" className={styles.ctaPrimary}>

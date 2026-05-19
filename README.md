@@ -29,11 +29,10 @@ The site is configured for static export (`output: "export"`) and deploys automa
 ### Preview a GitHub Pages build locally
 
 ```bash
-npm run build:gh-pages
-npx serve out
+npm run preview:gh-pages
 ```
 
-Then open the URL shown by `serve` (paths are rooted at `/zalag` when using the preview build).
+Then open **http://localhost:3002/zalag/** (not the server root `/` — the preview mirrors GitHub Pages’ `/zalag` subpath).
 
 ### Custom domain
 

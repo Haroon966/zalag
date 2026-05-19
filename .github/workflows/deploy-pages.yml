@@ -30,13 +30,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build static site
-        run: npm run build
+      - name: Build static site for GitHub Pages
+        run: npm run build:gh-pages
         env:
-          GITHUB_ACTIONS: true
-
-      - name: Disable Jekyll
-        run: touch out/.nojekyll
+          GITHUB_ACTIONS: "true"
+          # GITHUB_REPOSITORY is set automatically by GitHub Actions
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

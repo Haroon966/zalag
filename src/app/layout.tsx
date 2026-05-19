@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/og-cover.svg`,
+        url: "/og-cover.svg",
         width: 1200,
         height: 630,
         alt: `${siteConfig.name} — AI systems for production`,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.description,
-    images: [`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/og-cover.svg`],
+    images: ["/og-cover.svg"],
   },
   robots: {
     index: true,

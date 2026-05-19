@@ -6,6 +6,7 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "build:gh-pages": "GITHUB_ACTIONS=true GITHUB_REPOSITORY=Haroon966/zalag next build --webpack",
+    "preview:gh-pages": "npm run build:gh-pages && node scripts/preview-gh-pages.mjs",
     "start": "next start",
     "lint": "eslint"
   },
@@ -29,6 +30,7 @@
     "postprocessing": "^6.39.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "react-icons": "^5.6.0",
     "three": "^0.181.0"
   },
   "devDependencies": {

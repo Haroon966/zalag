@@ -7,7 +7,10 @@ import {
   useState,
   useEffect,
 } from "react";
+import Link from "next/link";
 import { gsap } from "gsap";
+import ThemeToggle from "@/components/ThemeToggle";
+import { isInternalPath, withBasePath } from "@/lib/paths";
 
 export interface StaggeredMenuItem {
   label: string;
@@ -56,6 +59,7 @@ export const StaggeredMenu = ({
   onMenuClose,
 }: StaggeredMenuProps) => {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const openRef = useRef(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const preLayersRef = useRef<HTMLDivElement | null>(null);
@@ -75,6 +79,13 @@ export const StaggeredMenu = ({
   const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
   const busyRef = useRef(false);
   const itemEntranceTweenRef = useRef<gsap.core.Tween | null>(null);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 1000);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -417,12 +428,12 @@ export const StaggeredMenu = ({
         })()}
       </div>
       <header
-        className="staggered-menu-header"
+        className={`staggered-menu-header${isScrolled ? " is-scrolled" : ""}`}
         aria-label="Main navigation header"
       >
         <div className="sm-logo cursor-target" aria-label="Logo">
           <img
-            src={logoUrl || "/logo.svg"}
+            src={withBasePath(logoUrl || "/logo.svg")}
             alt="Logo"
             className="sm-logo-img"
             draggable={false}
@@ -430,7 +441,37 @@ export const StaggeredMenu = ({
             height={24}
           />
         </div>
-        <button
+        {items.length > 0 ? (
+          <nav className="sm-desktop-nav" aria-label="Main navigation">
+            {items.map((item) =>
+              isInternalPath(item.link) ? (
+                <Link
+                  key={item.link}
+                  href={item.link}
+                  className="sm-desktop-link cursor-target"
+                  aria-label={item.ariaLabel}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.link}
+                  href={item.link}
+                  className="sm-desktop-link cursor-target"
+                  aria-label={item.ariaLabel}
+                >
+                  {item.label}
+                </a>
+              ),
+            )}
+          </nav>
+        ) : null}
+        <div className="sm-header-actions">
+          <ThemeToggle />
+          <Link href="/contact" className="sm-desktop-cta cursor-target">
+            Get Started
+          </Link>
+          <button
           ref={toggleBtnRef}
           className="sm-toggle cursor-target"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -457,6 +498,7 @@ export const StaggeredMenu = ({
             <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
           </span>
         </button>
+        </div>
       </header>
 
       <aside
@@ -474,14 +516,25 @@ export const StaggeredMenu = ({
             {items && items.length ? (
               items.map((item, idx) => (
                 <li className="sm-panel-itemWrap" key={`${item.label}-${idx}`}>
-                  <a
-                    className="sm-panel-item "
-                    href={item.link}
-                    aria-label={item.ariaLabel}
-                    data-index={idx + 1}
-                  >
-                    <span className="sm-panel-itemLabel cursor-target">{item.label}</span>
-                  </a>
+                  {isInternalPath(item.link) ? (
+                    <Link
+                      className="sm-panel-item "
+                      href={item.link}
+                      aria-label={item.ariaLabel}
+                      data-index={idx + 1}
+                    >
+                      <span className="sm-panel-itemLabel cursor-target">{item.label}</span>
+                    </Link>
+                  ) : (
+                    <a
+                      className="sm-panel-item "
+                      href={item.link}
+                      aria-label={item.ariaLabel}
+                      data-index={idx + 1}
+                    >
+                      <span className="sm-panel-itemLabel cursor-target">{item.label}</span>
+                    </a>
+                  )}
                 </li>
               ))
             ) : (

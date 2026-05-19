@@ -179,18 +179,18 @@ const Footer = () => {
           </p>
 
           <div className={styles.social}>
-            <Link href={siteConfig.social.linkedin || "#"} className={styles.socialLink}>
+            <Link href={siteConfig.social.linkedin || "#"} className={`${styles.socialLink} cursor-target`}>
               Twitch
             </Link>
-            <Link href={siteConfig.social.github || "#"} className={styles.socialLink}>
+            <Link href={siteConfig.social.github || "#"} className={`${styles.socialLink} cursor-target`}>
               Discord
             </Link>
-            <Link href={siteConfig.social.x || "#"} className={styles.socialLink}>
+            <Link href={siteConfig.social.x || "#"} className={`${styles.socialLink} cursor-target`}>
               X
             </Link>
           </div>
 
-          <Link href="#" className={styles.btn}>
+          <Link href="#" className={`${styles.btn} cursor-target`}>
             Sign up for our newsletter
           </Link>
         </div>
@@ -201,7 +201,7 @@ const Footer = () => {
             <ul>
               {topFooterLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className={styles.footerLink}>
+                  <Link href={link.href} className={`${styles.footerLink} cursor-target`}>
                     {link.label}
                   </Link>
                 </li>
@@ -221,7 +221,7 @@ const Footer = () => {
         {siteConfig.name.toUpperCase()} •{" "}
         {footerLinks.map((item, index) => (
           <span key={item.label}>
-            <Link href={item.href} className={styles.link}>
+            <Link href={item.href} className={`${styles.link} cursor-target`}>
               {item.prefix ? `${item.prefix} ${item.label}` : item.label}
             </Link>
             {index < footerLinks.length - 1 && " • "}

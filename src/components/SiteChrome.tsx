@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import StaggeredMenu from "@/components/StaggeredMenu";
 import TargetCursor from "@/components/TargetCursor";
+import { CURSOR_TARGET_SELECTOR } from "@/config/cursor";
 
 const menuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
@@ -24,7 +25,7 @@ interface SiteChromeProps {
 export default function SiteChrome({ children }: SiteChromeProps) {
   return (
     <>
-      <TargetCursor />
+      <TargetCursor targetSelector={CURSOR_TARGET_SELECTOR} />
       <StaggeredMenu
         isFixed
         position="right"

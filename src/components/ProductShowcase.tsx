@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SpotlightCard from "@/components/SpotlightCard";
 import { HiArrowRight } from "react-icons/hi";
+import { withBasePath } from "@/lib/paths";
 import styles from "./ProductShowcase.module.css";
 
 const products = [
@@ -47,7 +48,7 @@ const ProductShowcase = () => {
           >
             <div className={styles.productImageWrapper}>
               <Image
-                src="/chatsql.png"
+                src={withBasePath("/chatsql.png")}
                 alt="ChatSQL"
                 width={800}
                 height={400}

@@ -192,7 +192,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
         }
         current = current.parentElement;
       }
-      const target = allTargets[0] || null;
+      const target = allTargets[allTargets.length - 1] || null;
       if (!target || !cursorRef.current || !cornersRef.current) return;
       if (activeTarget === target) return;
 

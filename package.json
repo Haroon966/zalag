@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
+    "build:gh-pages": "GITHUB_ACTIONS=true GITHUB_REPOSITORY=Haroon966/zalag next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
@@ -32,11 +33,13 @@
     "three": "^0.181.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
+    "tailwindcss": "^4.3.0",
     "typescript": "^5"
   }
 }

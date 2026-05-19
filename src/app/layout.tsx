@@ -9,11 +9,13 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
     "machine learning consultants",
     "LLM integration",
     "AI automation",
-    "AI portfolio",
+    "production AI",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -44,19 +46,18 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-cover.svg",
+        url: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/og-cover.svg`,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} portfolio cover`,
+        alt: `${siteConfig.name} — AI systems for production`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@nebulafoundry",
     title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.description,
-    images: ["/og-cover.svg"],
+    images: [`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/og-cover.svg`],
   },
   robots: {
     index: true,
@@ -75,7 +76,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0f172a",
+  themeColor: "#090e19",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -109,9 +110,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      data-theme="dark"
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${geistSans.className} antialiased bg-background text-foreground`}
       >
         <div className="relative min-h-screen overflow-hidden">
           <div className="grid-overlay" aria-hidden="true" />
@@ -119,11 +125,14 @@ export default function RootLayout({
           <div className="glow-ring right-[-160px] top-1/3" aria-hidden="true" />
           <SiteChrome>
             <>
-              {children}
+              <main id="main-content">{children}</main>
               <Footer />
             </>
           </SiteChrome>
         </div>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`(function(){try{var t=localStorage.getItem("theme");var d=t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",d);}catch(e){}})();`}
+        </Script>
         <Script id="organization-schema" type="application/ld+json">
           {JSON.stringify(organizationSchema)}
         </Script>

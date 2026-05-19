@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { HiArrowRight } from "react-icons/hi";
-import styles from "./services.module.css";
+import { ArrowRight, Check } from "lucide-react";
+import { PageHero } from "@/components/ui/PageHero";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
+import { siteConfig } from "@/config/site";
 
 const services = [
   {
@@ -17,7 +20,7 @@ const services = [
   {
     title: "Copilot and agent design",
     description:
-      "Prototype conversational and autonomous workflows that embed into your existing tools and respect human-in-the-loop checkpoints.",
+      "Prototype conversational and autonomous workflows that embed into your tools and respect human-in-the-loop checkpoints.",
     bullets: [
       "UX research and journey mapping",
       "Multimodal interface prototyping",
@@ -27,7 +30,7 @@ const services = [
   {
     title: "Platform engineering",
     description:
-      "Stand up resilient AI infrastructure—from data pipelines and retrieval to inference orchestration and observability dashboards.",
+      "Stand up resilient AI infrastructure—from data pipelines and retrieval to inference orchestration and observability.",
     bullets: [
       "Model orchestration and routing",
       "Vector search and retrieval pipelines",
@@ -37,52 +40,70 @@ const services = [
 ];
 
 export const metadata: Metadata = {
-  title: "Services | zalag ai",
+  title: "Services",
   description:
     "Explore the AI strategy, product, and platform services that zalag ai offers to launch production-ready intelligent systems.",
 };
 
 export default function ServicesPage() {
   return (
-    <main className={styles.page}>
-      <header className={styles.hero}>
-        <span className={styles.tag}>Services</span>
-        <h1 className={styles.title}>From strategy to scale—delivered end to end.</h1>
-        <p className={styles.lead}>
-          We partner with teams to uncover the right AI bets, craft human-centered experiences, and deploy dependable platforms that
-          hold up in production. Every engagement is designed to transfer knowledge so your teams grow alongside the systems we ship.
-        </p>
-      </header>
+    <>
+      <PageHero
+        eyebrow="Services"
+        title="From strategy to scale—delivered end to end."
+        description="We partner with teams to uncover the right AI bets, craft human-centered experiences, and deploy dependable platforms that hold up in production."
+      />
 
-      <section className={styles.section}>
-        <div className={styles.serviceGrid}>
-          {services.map((service) => (
-            <div key={service.title} className={styles.serviceCard}>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <ul className={styles.serviceList}>
+      <Reveal className="section-padding page-shell">
+        <div className="container-wide space-y-8">
+          {services.map((service, index) => (
+            <article
+              key={service.title}
+              className="cursor-target grid gap-8 rounded-2xl border border-border bg-ink-muted/30 p-8 lg:grid-cols-[1fr_1.2fr] lg:gap-12 lg:p-12"
+            >
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-widest text-gold">
+                  0{index + 1}
+                </span>
+                <h2 className="mt-3 font-display text-2xl text-cream sm:text-3xl">{service.title}</h2>
+                <p className="mt-4 text-sm leading-relaxed text-cream-muted sm:text-base">
+                  {service.description}
+                </p>
+              </div>
+              <ul className="space-y-3">
                 {service.bullets.map((bullet) => (
-                  <li key={bullet}>• {bullet}</li>
+                  <li key={bullet} className="flex gap-3 text-sm text-cream-muted">
+                    <Check size={18} className="mt-0.5 shrink-0 text-gold" strokeWidth={2} />
+                    {bullet}
+                  </li>
                 ))}
               </ul>
-            </div>
+            </article>
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section className={styles.section}>
-        <div className={styles.callout}>
-          <strong>Engagement model</strong>
-          <p>
-            We assemble bespoke squads—strategy, design, data, and engineering—to work in tight sprints with your team. You get a single
-            delivery pod accountable for outcomes, documentation, and enablement.
-          </p>
-          <Link href="mailto:hello@nebulafoundry.ai" className={styles.ctaLink}>
-            Start an engagement
-            <HiArrowRight size={18} />
-          </Link>
+      <Reveal className="section-padding bg-ink-elevated/50 page-shell">
+        <div className="container-narrow">
+          <div className="rounded-3xl border border-border glass-strong p-10 sm:p-12">
+            <SectionHeading
+              eyebrow="Engagement"
+              title="Bespoke squads, accountable outcomes"
+              description="We assemble strategy, design, data, and engineering into a single delivery pod—in tight sprints with your team, with documentation and enablement built in."
+            />
+            <Button href="/contact" size="lg" className="mt-8">
+              Start an engagement
+              <ArrowRight size={18} />
+            </Button>
+            <p className="mt-6 text-sm text-cream-muted">
+              Or email us directly at{" "}
+              <a href={`mailto:${siteConfig.email}`} className="text-gold hover:text-gold-light">
+                {siteConfig.email}
+              </a>
+            </p>
+          </div>
         </div>
-      </section>
-    </main>
+      </Reveal>
+    </>
   );
 }

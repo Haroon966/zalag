@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ZALAG AI
 
-## Getting Started
+Marketing site for ZALAG AI, built with [Next.js](https://nextjs.org) and exported as static HTML for GitHub Pages.
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## GitHub Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site is configured for static export (`output: "export"`) and deploys automatically from `main` via [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
 
-## Learn More
+### One-time repository setup
 
-To learn more about Next.js, take a look at the following resources:
+1. Push this repo to GitHub.
+2. Open **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Merge to `main` (or run the workflow manually). The site will be published at:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   `https://<username>.github.io/zalag/`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   For this repository: [https://haroon966.github.io/zalag/](https://haroon966.github.io/zalag/)
 
-## Deploy on Vercel
+### Preview a GitHub Pages build locally
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build:gh-pages
+npx serve out
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Then open the URL shown by `serve` (paths are rooted at `/zalag` when using the preview build).
+
+### Custom domain
+
+To use a custom domain instead of `*.github.io`, add the domain in **Settings → Pages** and set `NEXT_PUBLIC_SITE_URL` in the workflow build step if you need canonical URLs in metadata to match.
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Production static export (root path, for local/Vercel-style hosting) |
+| `npm run build:gh-pages` | Static export with `/zalag` base path (matches CI) |
+| `npm run lint` | Run ESLint |

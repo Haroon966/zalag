@@ -1,7 +1,7 @@
 .main {
   width: 100%;
   min-height: 100vh;
-  padding-bottom: 100px;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 .hero {
@@ -77,57 +77,57 @@
   margin-right: auto;
 }
 
-.heroActions {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
+/* Light theme — dark top fading into light (matches page below) */
+:global(html[data-theme="light"]) .hero::before {
+  background: linear-gradient(
+    180deg,
+    #06060e 0%,
+    #0f0d1a 18%,
+    #1e1638 38%,
+    #4a3a7a 58%,
+    #9b8ec9 78%,
+    #ddd6f3 92%,
+    #f8f7fc 100%
+  );
 }
 
-.ctaPrimary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #090e19;
+:global(html[data-theme="light"]) .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 62%,
+    rgba(248, 247, 252, 0.35) 82%,
+    rgba(248, 247, 252, 0.92) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+:global(html[data-theme="light"]) .heroBackground {
+  opacity: 0.32;
+  mix-blend-mode: soft-light;
+}
+
+:global(html[data-theme="light"]) .heroTagline {
+  color: #f0eef8;
+  opacity: 0.95;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+:global(html[data-theme="light"]) .heroTitle {
   background: linear-gradient(
     135deg,
-    rgba(34, 211, 238, 1) 0%,
-    rgba(168, 85, 247, 1) 100%
+    #67e8f9 0%,
+    #e9d5ff 45%,
+    #c4b5fd 70%,
+    #a855f7 100%
   );
-  border-radius: 0.75rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
-}
-
-.ctaPrimary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 30px rgba(168, 85, 247, 0.4);
-}
-
-.ctaSecondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--foreground);
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.75rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.ctaSecondary:hover {
-  border-color: rgba(168, 85, 247, 0.6);
-  background: rgba(168, 85, 247, 0.1);
-  transform: translateY(-2px);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.25));
 }
 
 @media (max-width: 640px) {
@@ -136,13 +136,4 @@
     height: 100vh;
   }
 
-  .heroActions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .ctaPrimary,
-  .ctaSecondary {
-    width: 100%;
-  }
 }

@@ -2,6 +2,7 @@
   background: #000;
   padding: 80px 20px 40px;
   text-align: center;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   font-size: 0.95rem;
   opacity: 0.9;
   color: #fff;
@@ -240,6 +241,77 @@
 
 .bottomBar .link:hover::after {
   width: 100%;
+}
+
+/* Light theme */
+:global(html[data-theme="light"]) .footer {
+  background: linear-gradient(180deg, #f0ecff 0%, #e8e4f5 50%, #f4f2fa 100%);
+  color: #12121a;
+}
+
+:global(html[data-theme="light"]) .gradientOverlay {
+  background: radial-gradient(
+    circle 400px at var(--gradient-x, 50%) var(--gradient-y, 50%),
+    rgba(168, 85, 247, 0.18) 0%,
+    rgba(34, 211, 238, 0.12) 35%,
+    transparent 70%
+  );
+  mix-blend-mode: normal;
+}
+
+:global(html[data-theme="light"]) .topText,
+:global(html[data-theme="light"]) .links h3 {
+  color: #12121a;
+}
+
+:global(html[data-theme="light"]) .socialLink {
+  color: #12121a;
+}
+
+:global(html[data-theme="light"]) .socialLink::before {
+  background: rgba(124, 58, 237, 0.1);
+}
+
+:global(html[data-theme="light"]) .btn {
+  background: transparent;
+  color: #12121a;
+  border: 2px solid rgba(124, 58, 237, 0.5);
+  box-shadow: none;
+}
+
+:global(html[data-theme="light"]) .btn:hover {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: #7c3aed;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.2);
+}
+
+:global(html[data-theme="light"]) .btn::before {
+  background: rgba(124, 58, 237, 0.08);
+}
+
+:global(html[data-theme="light"]) .mainTitle {
+  color: #12121a;
+}
+
+:global(html[data-theme="light"]) .footerLink {
+  color: #2d2d3a;
+}
+
+:global(html[data-theme="light"]) .footerLink::before {
+  background: #7c3aed;
+}
+
+:global(html[data-theme="light"]) .footerLink:hover {
+  color: #5b21b6;
+}
+
+:global(html[data-theme="light"]) .bottomBar,
+:global(html[data-theme="light"]) .bottomBar .link {
+  color: #3f3f4a;
+}
+
+:global(html[data-theme="light"]) .bottomBar .link::after {
+  background: #7c3aed;
 }
 
 @media (max-width: 640px) {
